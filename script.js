@@ -20,15 +20,15 @@ let cartaum;
 let cartadois;
 let nomeimgum;
 let nomeimgdois;
-
+let timeout = true;
 let jogadas = 0;
 function girar(carta){
     const cartasViradas = [];
     jogadas++;
     const cartacorreta = carta.classList.contains('correto');
-    if(cartacorreta == false){
+    const temvirado = carta.classList.contains('virado');
+    if(cartacorreta == false && timeout == true && temvirado==false){
     carta.classList.add('virado');
-    console.log(carta);
     carta.querySelector(".back-face").classList.toggle("girar-back-face");
     carta.querySelector(".front-face").classList.toggle("girar-front-face");
     const selectorall = document.querySelectorAll('.virado');
@@ -51,11 +51,13 @@ function girar(carta){
         cartasViradas.length = 0;
         cartaum.classList.remove('virado');
         cartadois.classList.remove('virado');
+        timeout=false;
         setTimeout(()=> {
             cartaum.querySelector(".back-face").classList.toggle("girar-back-face");
             cartaum.querySelector(".front-face").classList.toggle("girar-front-face");
             cartadois.querySelector(".back-face").classList.toggle("girar-back-face");
             cartadois.querySelector(".front-face").classList.toggle("girar-front-face");
+            timeout=true;
          },1000);
     }
     
@@ -67,9 +69,7 @@ function girar(carta){
         cartadois.classList.remove('virado');
     }
     (document.querySelectorAll('.correto'));
-    console.log(cartasViradas.length);
-    console.log(cartasViradas);
-    console.log(selectorall.length);
+    console.log(timeout);
     }
     const fimdejogo = document.querySelectorAll('.correto');  
     if(fimdejogo.length == numerocartas){
