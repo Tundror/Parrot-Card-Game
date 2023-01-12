@@ -60,11 +60,18 @@ main{
     color: #75B79E;
   }
   .container-cartas{
-    width: 80%;
+    width: 50%;
+    height: 210px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 180px;
-    margin-top: 147px;
+    gap: 150px;
+    margin-top: 100px;
+  }
+  .correto{
+
+  }
+  .virado{
+    
   }
