@@ -60,7 +60,6 @@ function girar(carta){
             timeout=true;
          },1000);
     }
-    
     else if(cartasViradas.length==2){
         cartasViradas.length = 0;
         cartaum.classList.add('correto');
@@ -76,7 +75,6 @@ function girar(carta){
         alert(`Você ganhou em ${jogadas} jogadas!`);
     }
 }
-
 const novasCartas = [];
 while(cont < numerocartas)
 {
@@ -92,16 +90,15 @@ let cont2 = 0;
 while(cont2 < numerocartas){
     const container = document.querySelector('.container-cartas');
     container.innerHTML += `
-    <div onclick = "girar(this)"class="card">
+    <div data-test="card" onclick = "girar(this)"class="card">
         <div class="front-face face">
-            <img class="back" src="imagens/back.png" alt="back">
+            <img data-test="face-down-image" class="back" src="imagens/back.png" alt="back">
         </div>
         <div class="back-face face">
-            <img class="front" src="imagens/${novasCartas[cont2]}" alt="bobrossparrot">
+            <img data-test="face-up-image" class="front" src="imagens/${novasCartas[cont2]}" alt="bobrossparrot">
         </div>`
     cont2++;
 }
-
 }
 else{
     alert("Numero invalido de cartas");
